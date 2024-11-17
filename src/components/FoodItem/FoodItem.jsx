@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
@@ -10,7 +10,11 @@ const FoodItem = ({ id, name, price, description, image }) => {
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-image" src={url + "/images/" + image} alt="" />
+        <img
+          className="food-item-image"
+          src={url + "/images/" + image}
+          alt=""
+        />
         {!cartItems[id] ? (
           <img
             className="add"
@@ -51,7 +55,7 @@ FoodItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
 };
 
 export default FoodItem;
