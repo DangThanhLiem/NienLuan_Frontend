@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState, useEffect } from "react";
-import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 export const StoreContext = createContext(null);
+import axios from "axios";
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
@@ -18,23 +18,21 @@ const StoreContextProvider = (props) => {
     if (token) {
       await axios.post(
         url + "/api/cart/add",
-        { itemId, userId: token },
-        { headers: { token: token } }
+        { itemId },
+        { headers: { token } }
       );
     }
   };
-
-  const removeFromCart  = async (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (token) {
       await axios.post(
         url + "/api/cart/remove",
-        { itemId, userId: token },
-        { headers: { token: token } }
+        { itemId },
+        { headers: { token } }
       );
     }
   };
-
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
@@ -50,8 +48,13 @@ const StoreContextProvider = (props) => {
     const response = await axios.get(url + "/api/food/list");
     setFoodList(response.data.data);
   };
+
   const loadCartData = async (token) => {
-    const response = await axios.get(url + "/api/cart/get", { headers: { token: token } });
+    const response = await axios.post(
+      url + "/api/cart/get",
+      {},
+      { headers: { token } }
+    );
     setCartItems(response.data.cartData);
   };
   useEffect(() => {
@@ -64,7 +67,6 @@ const StoreContextProvider = (props) => {
     }
     loadData();
   }, []);
-
   const contextValue = {
     food_list,
     cartItems,
@@ -82,5 +84,4 @@ const StoreContextProvider = (props) => {
     </StoreContext.Provider>
   );
 };
-
 export default StoreContextProvider;

@@ -1,72 +1,88 @@
-.food-item{
-    width: 100%;
-    margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px #00000015;
+.food-item {
+    width: 300px;
+    height: auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    outline: 2px solid #faad96;
+    margin-bottom: 30px;
     transition: 0.3s;
     animation: fadeIn 1s;
-}
-
-.food-item-image{
-    width: 100%;
-    border-radius: 15px 15px 0px 0px;
-}
-
-.food-item-info{
+    background-color: rgba(255, 99, 71, 0.176);
+  }
+  .food-item:hover {
+    transform: scale(1.1);
+  }
+  .dark .food-item {
+    background-color: #222;
+  }
+  .food-item-image {
+    width: 100px;
+    height: auto;
+    bottom: 160px;
+    left: 95px;
+    object-fit: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    box-shadow: 0 20px 20px #faad96;
+    border-radius: 50%;
+  }
+  .food-item-info {
     padding: 20px;
-}
-
-.food-item-name-rating{
+    margin-top: 20px;
+  }
+  .food-item-name-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-}
-.food-item-name-rating p{
+  }
+  .food-item-name-rating p {
     font-size: 20px;
     font-weight: 500;
-}
-.food-item-name-rating img{
+  }
+  .food-item-name-rating img {
     width: 70px;
-}
-
-.food-item-desc{
+  }
+  .food-item-desc {
     color: #676767;
-    font-size: 12px;
-}
-
-.food-item-price{
+    font-size: 15px;
+  }
+  .food-item-price {
     color: tomato;
     font-size: 22px;
     font-weight: 500;
-    margin: 10px 0px;
-}
-
-.food-item-img-container{
+    margin-top: 10px;
+  }
+  .food-items-price-count {
     position: relative;
-}
-
-.food-item-img-container .add{
-    width: 35px;
+  }
+  .food-items-price-count .add {
+    width: 30px;
     position: absolute;
-    bottom: 15px;
+    bottom: 1px;
     right: 15px;
     cursor: pointer;
-    border-radius: 50px;
-}
-
-.food-item-counter{
+    border-radius: 50%;
+  }
+  .food-item-counter {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: -3px;
+    right: 5px;
     display: flex;
     align-items: center;
-    gap :10px;
+    gap: 10px;
     padding: 6px;
     border-radius: 50px;
     background-color: white;
-}
-
-.food-item-counter img{
-    width: 30px;
-}
+  }
+  .dark .food-item-counter {
+    color: black;
+  }
+  .food-item-counter img {
+    width: 23px;
+    cursor: pointer;
+  }
+  
